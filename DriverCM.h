@@ -98,8 +98,8 @@ void RunFourMotorsWithEncoderWithDifferentPower(tMotor Motor1,tMotor Motor2,tMot
 		units=(-units);
 	}
 	motor[Motor1]=power1;
-	motor[Motor2]=power1;
-	motor[Motor3]=power2;
+	motor[Motor2]=power2;
+	motor[Motor3]=power1;
 	motor[Motor4]=power2;
 	while(abs(nMotorEncoder[Motor1])<units&&nMotorEncoder[Motor2]<units)
 	{
