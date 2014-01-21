@@ -24,6 +24,7 @@
 | ----------------------------------------------------------------------------------
 | Motor and sensor setup. motorK does not exist at the moment and likely will not.
 | Only one servo is being used.
-| Please add this to your file with #include "config.h"
+| You cannot include this file with the standard #include
+| Instead, just copy and paste the code.
 | ----------------------------------------------------------------------------------
 */
