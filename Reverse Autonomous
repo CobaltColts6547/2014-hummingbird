@@ -1,16 +1,19 @@
-#pragma config(Servo,  srvo_S1_C1_1,    armservo,             tServoStandard)
-#pragma config(Motor,  mtr_S2_C1_1,     arm,           tmotorTetrix, openLoop)
+#pragma config(Hubs,  S1, HTServo,  HTMotor,  HTMotor,  HTMotor)
+#pragma config(Hubs,  S2, HTMotor,  none,     none,     none)
+#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
+#pragma config(Sensor, S2,     ,               sensorI2CMuxController)
+#pragma config(Sensor, S3,     ir,             sensorHiTechnicIRSeeker1200)
 #pragma config(Motor,  motorA,          flap1,         tmotorNXT, PIDControl, reversed, encoder)
 #pragma config(Motor,  motorB,          flap2,         tmotorNXT, PIDControl, encoder)
-#pragma config(Hubs,  S1, HTServo,  HTMotor,  HTMotor,  HTMotor)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)  // SETUP of the robot
-#pragma config(Sensor, S3,     IRSeeker,       sensorHiTechnicIRSeeker1200)
 #pragma config(Motor,  mtr_S1_C2_1,     frontLeft,     tmotorTetrix, openLoop, reversed, encoder)
 #pragma config(Motor,  mtr_S1_C2_2,     backLeft,      tmotorTetrix, openLoop, reversed)
-#pragma config(Motor,  mtr_S1_C3_1,     frontRight,    tmotorTetrix, openLoop, encoder)
+#pragma config(Motor,  mtr_S1_C3_1,     frontRight,    tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     backRight,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C4_1,     central,       tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C4_2,     winch,         tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_1,     arm,           tmotorTetrix, openLoop, encoder)
+#pragma config(Motor,  mtr_S2_C1_2,     motorK,        tmotorTetrix, openLoop)
+#pragma config(Servo,  srvo_S1_C1_1,    armservo,             tServoStandard)
 #pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_3,    servo3,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_4,    servo4,               tServoNone)
@@ -19,10 +22,10 @@
 #include "DriverCM.h" // Has the Methods\Driver for this code
 // Code BEGINS
 int servolevel = 120;
-int maxDistance = 230; // When H drive is back make 230
+int maxDistance = 220; // When H drive is back make 220
 int defaultSpeed = -50;
 int slowDownSpeed;
-bool hDriveWorking = false;
+bool hDriveWorking = true;
 void spit()
 {
 	servo[armservo] = servolevel-10;
@@ -45,10 +48,10 @@ task main()
 	motor[backLeft]=defaultSpeed;//Makes it go forward
 	motor[backRight]=defaultSpeed;//Makes it go forward
 	nMotorEncoder [frontLeft] = 0;//Resets the Encoder
-	while(SensorValue[IRSeeker] != 5 && unitsToCentimeters(nMotorEncoder[frontLeft])<maxDistance)//If  Ir seeker is NOT 5 do\ Below 230 CM
+	while(SensorValue[ir] != 5 && unitsToCentimeters(nMotorEncoder[frontLeft])<maxDistance)//If  Ir seeker is NOT 5 do\ Below 230 CM
 	{
 
-		if(SensorValue[IRSeeker] > 0) // Slow down if it sees ir
+		if(SensorValue[ir] > 0) // Slow down if it sees ir
 		{
 			motor[frontLeft]= -10;   //Slows it down
 			motor[frontRight]= -10;
