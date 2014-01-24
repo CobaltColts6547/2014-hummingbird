@@ -26,7 +26,7 @@ void runMotorWithEncoder(tMotor chosenMotor,int power,int units)
 	}
 	motor[chosenMotor]=0;
 	nMotorEncoder[chosenMotor] = 0;
-	wait1Msec(100); 
+	wait1Msec(100);
 }
 //Runs 1 motor for certain CM at a certin speed (using the runWithEncoder)
 void runMotorWithEncoderByCm(tMotor chosenMotor,int power,int cm)
@@ -37,21 +37,19 @@ void runMotorWithEncoderByCm(tMotor chosenMotor,int power,int cm)
 void runTwoMotorsWithEncoder(tMotor Motor1,tMotor Motor2,int power,int units)
 {
 	nMotorEncoder[Motor1] = 0;
-	nMotorEncoder[Motor2] = 0;
 	if(units<0)
 	{
 		units=(-units);
 	}
 	motor[Motor1]=power;
 	motor[Motor2]=power;
-	while(abs(nMotorEncoder[Motor1])<units&&nMotorEncoder[Motor2]<units)
+	while(abs(nMotorEncoder[Motor1])<units)
 	{
 
 	}
 	motor[Motor1]=0;
 	motor[Motor2]=0;
 	nMotorEncoder[Motor1] = 0;
-	nMotorEncoder[Motor2] = 0;
 	wait1Msec(100);
 }
 //Runs 4 motors for certain encoder units at a certin speed
@@ -59,7 +57,6 @@ void runTwoMotorsWithEncoder(tMotor Motor1,tMotor Motor2,int power,int units)
 void runFourMotorsWithEncoder(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor Motor4,int power,int units)
 {
 	nMotorEncoder[Motor1] = 0;
-	nMotorEncoder[Motor2] = 0;
 	if(units<0)
 	{
 		units=(-units);
@@ -68,7 +65,7 @@ void runFourMotorsWithEncoder(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor M
 	motor[Motor2]=power;
 	motor[Motor3]=power;
 	motor[Motor4]=power;
-	while(abs(nMotorEncoder[Motor1])<units&&nMotorEncoder[Motor2]<units)
+	while(abs(nMotorEncoder[Motor1])<units)
 	{
 
 
@@ -78,8 +75,7 @@ void runFourMotorsWithEncoder(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor M
 	motor[Motor3]=0;
 	motor[Motor4]=0;
 	nMotorEncoder[Motor1] = 0;
-	nMotorEncoder[Motor2] = 0;
-	wait1Msec(100); 
+	wait1Msec(100);
 }
 
 //Runs 2 motors for certain CM at a certin speed
@@ -92,7 +88,6 @@ void fourMotorcm(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor Motor4,int pow
 void RunFourMotorsWithEncoderWithDifferentPower(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor Motor4,int power1,int power2, int units)
 {
 	nMotorEncoder[Motor1] = 0;
-	nMotorEncoder[Motor2] = 0;
 	if(units<0)
 	{
 		units=(-units);
@@ -101,7 +96,7 @@ void RunFourMotorsWithEncoderWithDifferentPower(tMotor Motor1,tMotor Motor2,tMot
 	motor[Motor2]=power2;
 	motor[Motor3]=power1;
 	motor[Motor4]=power2;
-	while(abs(nMotorEncoder[Motor1])<units&&nMotorEncoder[Motor2]<units)
+	while(abs(nMotorEncoder[Motor1])<units)
 	{
 
 
@@ -111,6 +106,5 @@ void RunFourMotorsWithEncoderWithDifferentPower(tMotor Motor1,tMotor Motor2,tMot
 	motor[Motor3]=0;
 	motor[Motor4]=0;
 	nMotorEncoder[Motor1] = 0;
-	nMotorEncoder[Motor2] = 0;
 	wait1Msec(100);
 }
