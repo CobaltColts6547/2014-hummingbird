@@ -77,7 +77,28 @@ void runFourMotorsWithEncoder(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor M
 	nMotorEncoder[Motor1] = 0;
 	wait1Msec(100);
 }
+void runFourMotorsWithEncoderByCmNoReset(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor Motor4,int power,int units)
+{
+	int startVal = nMotorEncoder[Motor1];
+	if(units<0)
+	{
+		units=(-units);
+	}
+	motor[Motor1]=power;
+	motor[Motor2]=power;
+	motor[Motor3]=power;
+	motor[Motor4]=power;
+	while(abs(nMotorEncoder[Motor1]-startVal)<centimetersToUnits(units))
+	{
 
+
+	}
+	motor[Motor1]=0;
+	motor[Motor2]=0;
+	motor[Motor3]=0;
+	motor[Motor4]=0;
+	wait1Msec(100);
+}
 //Runs 2 motors for certain CM at a certin speed
 
 void fourMotorcm(tMotor Motor1,tMotor Motor2,tMotor Motor3,tMotor Motor4,int power,int cm)
