@@ -15,7 +15,7 @@
 #pragma config(Motor,  mtr_S2_C1_1,     arm,           tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S2_C1_2,     motorK,        tmotorTetrix, openLoop)
 #pragma config(Servo,  srvo_S1_C1_1,    armservo,             tServoStandard)
-#pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoNone)
+#pragma config(Servo,  srvo_S1_C1_2,    rachetservo,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_3,    servo3,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_4,    servo4,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_5,    servo5,               tServoNone)
@@ -71,7 +71,7 @@
         motor[backleft]         = joystick.joy1_y1 * 100 / 128;
         motor[backright]        = joystick.joy1_y2 * 100 / 128;
         //motor[arm]              = armDrive();
-
+	
         /*
         | --------------------------------------------------------------------------
         | Center wheel control code
@@ -98,6 +98,17 @@
         		servo[armservo] += 0;
       	}
 				*/
+	| --------------------------------------------------------------------------
+        | Rachet servo control code (Added by Briscoe at last minute)
+        | --------------------------------------------------------------------------
+
+        if (joy1Btn(a) == 1) {
+            servo[armservo] += 5;
+        } else if (joy1Btn(b) == 1) {
+            servo[armservo] -= 5;
+        } else {
+        		servo[armservo] += 0;
+      	}
         /*
         | --------------------------------------------------------------------------
         | Pickup roller control code
