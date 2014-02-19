@@ -24,7 +24,7 @@
 // Code BEGINS
 int armPower = -20;
 int servolevel = 0;
-int maxDistance = 195; // When H drive is back make 230 XXX
+int maxDistance = 180; // When H drive is back make 230 XXX
 int bin4 = 150;
 int defaultSpeed = 30;
 bool hDriveWorking = true;
@@ -110,7 +110,7 @@ runFourMotorsWithEncoderByCmNoReset(frontLeft,frontRight,backRight,backLeft,50,4
 	fourMotorcm(frontLeft,frontRight,backRight,backLeft,50,maxDistance-unitsToCentimeters(nMotorEncoder[frontLeft]));
 	if (hDriveWorking) {
 		// H drive is working!
-		runMotorWithEncoderByCm(central,-50,100); //Runs h drive to the right for 70 CM // MAKE SURE TO INCLUDE THIS XXXXX
+		runMotorWithEncoderByCm(central,-50,110); //Runs h drive to the right for 70 CM // MAKE SURE TO INCLUDE THIS XXXXX
 		fourMotorcm(frontLeft,frontRight,backRight,backLeft,-50,90); // Goes backwards for 85 CM // MAKE SURE TO INCLUDE THIS XXXXX
 		} else {
 		// H drive isn't working. Turn 90 degrees, drive forward, turn 90 degrees, drive onto ramp.
