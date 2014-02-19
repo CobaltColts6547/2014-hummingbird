@@ -24,7 +24,7 @@
 // Code BEGINS
 int armPower = -20;
 int servolevel = 0;
-int maxDistance = 195; // When H drive is back make 230 XXX
+int maxDistance = 180; // When H drive is back make 230 XXX
 int bin4 = 150;
 int defaultSpeed = 30;
 bool hDriveWorking = true;
@@ -121,7 +121,7 @@ runFourMotorsWithEncoderByCmNoReset(frontLeft,frontRight,backRight,backLeft,50,4
 	runMotorWithEncoderByCm(central,20,10);  // scoot back against our ramp wall
 	}
 // Code ENDS
-//motor[pi]=3.14159265358979323846264338327950288419716939937510;
+
 
 
 
