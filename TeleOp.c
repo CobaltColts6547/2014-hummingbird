@@ -3,8 +3,6 @@
 #pragma config(Sensor, S1,     c1,             sensorI2CMuxController)
 #pragma config(Sensor, S2,     c2,             sensorI2CMuxController)
 #pragma config(Sensor, S3,     ir,             sensorHiTechnicIRSeeker1200)
-#pragma config(Motor,  motorA,          spinner1,      tmotorNXT, PIDControl, encoder)
-#pragma config(Motor,  motorB,          spinner2,      tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C2_1,     frontleft,     tmotorTetrix, openLoop, reversed, encoder)
 #pragma config(Motor,  mtr_S1_C2_2,     backleft,      tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S1_C3_1,     frontright,    tmotorTetrix, openLoop)
@@ -24,11 +22,15 @@
     /*
     | ------------------------------------------------------------------------------
     | Teleop Code for FTC Team 6547 Cobalt Colts, 2014 Red Hummingbird
-    | Test code for preparation for States
+    | Test code for preparation for FRC Demo
+    | Winch is now flag but not renaming
     | Written primarily by head programmer, Ryan Pope
     | Thanks to Sean Doyle, Doc Tassio and Eric Briscoe for their contributions
     | Also thanks to Ben, Ethan, Lex and Jarren for their autonomous
     | Thanks to Tony Ma for driving this robot
+    | Thanks to Allison Meegan and Surabhi for their leadership
+    | Thanks to Lily for being awesome and nice and pretty
+    | Thanks to builders and Joe for having a robot to program
     | ® All rights reserved Team 6547
     | ------------------------------------------------------------------------------
     */
@@ -80,7 +82,7 @@
 
             /*
             | --------------------------------------------------------------------------
-            | Winch control code
+            | Flag control code
             | --------------------------------------------------------------------------
             */
 
@@ -114,23 +116,6 @@
                 servo[arm2] = 255;
             }
 
-            /*
-            | --------------------------------------------------------------------------
-            | Spinners Control Code
-            | --------------------------------------------------------------------------
-            */
-            
-            if (joy2Btn(y) == 1) {
-                motor[spinner1] = -100;
-                motor[spinner2] = -100;
-            } else if (joy2Btn(b) == 1) {
-                motor[spinner1] = 100;
-                motor[spinner2] = 100;
-            } else {
-                motor[spinner1] = 0;
-                motor[spinner2] = 0;
-            }
-            
         }
 
 }
