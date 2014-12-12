@@ -29,7 +29,6 @@
     | Also thanks to Ben, Ethan, Lex and Jarren for their autonomous
     | Thanks to Tony Ma for driving this robot
     | Thanks to Allison Meegan and Surabhi for their leadership
-    | Thanks to Lily for being awesome and nice and pretty
     | Thanks to builders and Joe for having a robot to program
     | ® All rights reserved Team 6547
     | ------------------------------------------------------------------------------
